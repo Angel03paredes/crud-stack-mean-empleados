@@ -1,0 +1,31 @@
+
+GET http://localhost:3000/employees/getEmployees
+#########
+
+
+GET http://localhost:3000/employees/getEmployee/60b49f4dba4f0b3f5cd43c84
+#########
+
+DELETE http://localhost:3000/employees/delete/60b49f4dba4f0b3f5cd43c84
+#########
+
+
+POST http://localhost:3000/employees/create
+Content-Type: application/json
+
+{
+    "name": "angel",
+    "position": "Director",
+    "salary": "123",
+    "office": "progrmador"
+}
+###
+PUT http://localhost:3000/employees/update/60b4a1f3746cd524ec894b31
+Content-Type: application/json
+
+{
+    "name": "jesus",
+    "position": "Director",
+    "salary": "123",
+    "office": "progrmador"
+}

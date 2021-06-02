@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
+                    <div class="form-group">
+                        <input type="hidden" [(ngModel)]="employeesService.employee._id"  name="_id" >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="employeesService.employee.name" class="form-control"  name="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="employeesService.employee.position" class="form-control" name="position" placeholder="Enter your position">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="employeesService.employee.office" class="form-control" name="office" placeholder="Enter your office">
+                    </div>
+                    <div class="form-group mb-2">
+                        <input type="number" min="0" [(ngModel)]="employeesService.employee.salary" class="form-control" name="salary" placeholder="Entr your salary">
+                    </div>
+
+                    
+                        <a class="btn btn-secondary" (click)="resetForm(employeeForm)"> Clean</a>
+                        <button class="btn btn-primary "> Save </button>
+                    
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Salary</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let element of employeesService.employees">
+                    <td>{{element.name}}</td>
+                    <td>{{element.position}}</td>
+                    <td>{{element.office}}</td>
+                    <td>{{element.salary}}</td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" (click)="updateEmployee(element)">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteEmployee(element._id)">
+                            <i class="material-icons">delete</i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
